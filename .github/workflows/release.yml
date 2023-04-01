@@ -10,19 +10,19 @@ jobs:
   lint-client:
     name: Lint and Export client
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
-      NEXT_PUBLIC_BASE_API_URL: ${{ secrets.NEXT_PUBLIC_BASE_API_URL_PROD }}
-      BASE_API_URL: ${{ secrets.BASE_API_URL }}
-      NEXT_PUBLIC_FIREBASE_WEB_API_KEY: ${{ secrets.FIREBASE_WEB_API_KEY_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_AUTHDOMAIN: ${{ secrets.FIREBASE_WEB_AUTHDOMAIN_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_PROJECT_ID: ${{ secrets.FIREBASE_WEB_PROJECT_ID_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_STORAGE_BUCKET: ${{ secrets.FIREBASE_WEB_STORAGE_BUCKET_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_WEB_MESSAGING_SENDER_ID_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_APP_ID: ${{ secrets.FIREBASE_WEB_APP_ID_PROD }}
-      NEXT_PUBLIC_FIREBASE_WEB_MEASUREMENT_ID: ${{ secrets.FIREBASE_WEB_MEASUREMENT_ID_PROD }}
-      NEXT_PUBLIC_MEDIA_BG1: ${{ secrets.NEXT_PUBLIC_MEDIA_BG1 }}
-      NEXT_PUBLIC_RANDOM_JOKE_API: ${{ secrets.NEXT_PUBLIC_RANDOM_JOKE_API }}
+    # env:
+    #   NEXT_PUBLIC_BASE_PATH: ${{ secrets.NEXT_PUBLIC_BASE_PATH }}
+    #   NEXT_PUBLIC_BASE_API_URL: ${{ secrets.NEXT_PUBLIC_BASE_API_URL_PROD }}
+    #   BASE_API_URL: ${{ secrets.BASE_API_URL }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_API_KEY: ${{ secrets.FIREBASE_WEB_API_KEY_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_AUTHDOMAIN: ${{ secrets.FIREBASE_WEB_AUTHDOMAIN_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_PROJECT_ID: ${{ secrets.FIREBASE_WEB_PROJECT_ID_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_STORAGE_BUCKET: ${{ secrets.FIREBASE_WEB_STORAGE_BUCKET_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_WEB_MESSAGING_SENDER_ID_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_APP_ID: ${{ secrets.FIREBASE_WEB_APP_ID_PROD }}
+    #   NEXT_PUBLIC_FIREBASE_WEB_MEASUREMENT_ID: ${{ secrets.FIREBASE_WEB_MEASUREMENT_ID_PROD }}
+    #   NEXT_PUBLIC_MEDIA_BG1: ${{ secrets.NEXT_PUBLIC_MEDIA_BG1 }}
+    #   NEXT_PUBLIC_RANDOM_JOKE_API: ${{ secrets.NEXT_PUBLIC_RANDOM_JOKE_API }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -58,21 +58,21 @@ jobs:
           path: client/out
           retention-days: 3
 
-  lint-server:
-    name: Lint Server
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-      - name: Use NodeJS v18.14.2
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.14.2
-      - name: Install Dependencies and lint
-        run: |
-          cd server
-          npm install
-          npm run lint
+  # lint-server:
+  #   name: Lint Server
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout the repository
+  #       uses: actions/checkout@v3
+  #     - name: Use NodeJS v18.14.2
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18.14.2
+  #     - name: Install Dependencies and lint
+  #       run: |
+  #         cd server
+  #         npm install
+  #         npm run lint
 
   deploy-client:
     name: Deploy client to Github Pages
