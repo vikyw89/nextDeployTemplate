@@ -26,9 +26,6 @@ concurrency:
 
 jobs:
   # Build job
-  defaults:
-    run:
-      working-directory: ./client
   build:
     runs-on: ubuntu-latest
     steps:
