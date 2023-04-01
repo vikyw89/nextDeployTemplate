@@ -31,7 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        working-directory: ./client
       - name: Detect package manager
         working-directory: ./client
         id: detect-package-manager
@@ -51,13 +50,11 @@ jobs:
             exit 1
           fi
       - name: Setup Node
-        working-directory: ./client
         uses: actions/setup-node@v3
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
-        working-directory: ./client
         uses: actions/configure-pages@v3
         with:
           # Automatically inject basePath in your Next.js configuration file and disable
@@ -66,7 +63,6 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
       - name: Restore cache
-        working-directory: ./client
         uses: actions/cache@v3
         with:
           path: |
