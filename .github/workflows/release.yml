@@ -9,7 +9,8 @@ on:
       - dev
   # release:
   #   types: [published]
-
+env:
+  NEXT_PUBLIC_BASE_PATH: /nextDeployTemplate
 jobs:
   lint-client:
     name: Lint and Export client
