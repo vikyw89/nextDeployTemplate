@@ -8,8 +8,7 @@ on:
       - main
   # release:
   #   types: [published]
-env:
-  
+
 jobs:
   lint-client:
     name: Lint and Export client
