@@ -4,9 +4,9 @@ name: Deploy to Production Environment
 # Make sure to create tags/releases only from the "master" branch for consistency
 on:
   push:
-    branches-ignore:
-      - master
-      - dev
+    branches:
+      include:
+        - main
   # release:
   #   types: [published]
 
