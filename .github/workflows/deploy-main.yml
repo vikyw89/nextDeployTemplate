@@ -1,6 +1,6 @@
 name: Deploy to Production Environment
 
-# This workflow will trigger on any tag/release created on *any* branch
+# This workflow will trigger on any tag/release created on main branch
 # Make sure to create tags/releases only from the "master" branch for consistency
 on:
   push:
@@ -35,6 +35,7 @@ jobs:
           node-version: 18.14.2
       - name: Install Dependencies
         run: |
+          echo ${{ github }}
           cd client
           npm install
 
