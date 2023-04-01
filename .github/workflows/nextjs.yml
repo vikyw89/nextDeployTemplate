@@ -82,7 +82,6 @@ jobs:
         working-directory: ./client
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
-        working-directory: ./client
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
