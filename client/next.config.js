@@ -2,10 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   trailingSlash:true,
-  basePath: '/nextDeployTemplate'
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  env:{
+    NEXT_PUBLIC_BASE_PATH: process.env.NEXT_PUBLIC_BASE_PATH
+  }
 }
 
 module.exports = nextConfig
